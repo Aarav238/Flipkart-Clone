@@ -7,7 +7,7 @@ const SearchContainer = styled(Box)`
     width: 38%;
     border-radius: 2px;
     margin-left: 10px;
-    display: flex;
+    display: flex; 
  `;
  const InputSearchBase = styled(InputBase)`
     padding-left: 20px;
