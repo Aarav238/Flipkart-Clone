@@ -1,6 +1,7 @@
 import express from "express";
 import db  from "./database.js";
 import dotenv from "dotenv";
+import defaultData from "./data.js";
 
 
 const app = express();
@@ -13,3 +14,4 @@ db(URL);
 app.listen(PORT, () => 
 console.log(`server is running on port ${PORT}`)
 )
+defaultData();
