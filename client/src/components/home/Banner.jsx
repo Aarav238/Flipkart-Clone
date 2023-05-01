@@ -28,7 +28,6 @@ const Banner = () => {
         <Carousel responsive={responsive} 
          swipeable={false}
          draggable={false}
-         showDots={true}
          infinite={true}
          autoPlay={true}
          autoPlaySpeed={2000}
