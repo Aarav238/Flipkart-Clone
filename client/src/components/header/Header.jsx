@@ -17,7 +17,7 @@ font-size: 10px;
 font-style: italic;
 `
 //handle css of html tags with styled components
-const PlusImage = styled("img")({
+const PlusImage = styled('img')({
     width: 10,
     height: 10,
     marginLeft: 4
