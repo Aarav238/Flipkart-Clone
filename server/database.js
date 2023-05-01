@@ -1,9 +1,7 @@
 import mongoose, { mongo } from "mongoose";
 
 
-
-export const db = async() => {
-    const URL = "mongodb://0.0.0.0:27017";
+const db = async(URL) => {
     try {
        await mongoose.connect(URL, {
             useUnifiedTopology : true,
@@ -14,3 +12,4 @@ export const db = async() => {
         console.log('Error while connecting to database', error.message); 
     }
 }
+export default db;
