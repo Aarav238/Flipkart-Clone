@@ -1,18 +1,19 @@
 import React from 'react'
 import{ Dialog , Box , TextField, Button, Typography , styled} from '@mui/material';
-
+import { useState } from 'react';
 const Component = styled(Box)`
 
-height: 60vh;
+height: 70vh;
 width: 90vh;
 
 `;
 
 const Image = styled(Box)`
 background: #2874f0 url(https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png) center 85% no-repeat;
-height: 100%;
-width: 40%;
+height: 82%;
+width: 28%;
 padding: 45px 35px;
+
 & > p , & > h5{
     color: #ffffff;
     font-weight: 600;
@@ -58,19 +59,47 @@ const CreateAccount = styled(Typography)`
      cursor: pointer;
 `;
 
+const accountInitialValue = {
+    login:{
+        view:"login",
+        heading: "Login",
+        subheading: "Get access to your Orders, Wishlist and Recommendations"
+    },
+    signup:{
+        view:"signup",
+        heading: " Looks like you're new here!",
+        subheading: "Sign Up with your mobile number to get started"
+    }
+}
+
+
 const LoginDialog = ({open , setOpen}) => {
+
+    const [account,toggleAccout] = useState(accountInitialValue.login)
 
     const handleClose = () => {
         setOpen(false)
+        toggleAccout(accountInitialValue.login)
+    }
+
+    const viewChange = () => {
+        toggleAccout(accountInitialValue.signup)
+    }
+
+    const onValueChange = (e) => {
+        console.log(e);
     }
   return (
     <Dialog open={open} onClose={handleClose} maxWidth={false} >
         <Component> 
         <Box style={{display: "flex" , height: "100%"}}>
              <Image>
-                <Typography variant='h5'> Login </Typography>
-                <Typography style={{ marginTop : 20}}>Get access to your Orders, Wishlist and Recommendations</Typography>
+                <Typography variant='h5'> {account.heading}</Typography>
+                <Typography style={{ marginTop : 20}}>{account.subheading}</Typography>
              </Image>
+             { 
+                account.view === "login" ?
+
              <Wrapper>
                 <TextField label = "Enter Email/Mobile number" variant = "standard"/>
                 <TextField label = "Enter Password" variant = "standard"/>
@@ -84,11 +113,22 @@ const LoginDialog = ({open , setOpen}) => {
                     OR
                 </Typography>
                 <RequestOtp> Request OTP</RequestOtp>
-                <CreateAccount>
+                <CreateAccount onClick={viewChange}>
                     New to Flipkart? Create an Account.
                 </CreateAccount>
 
              </Wrapper>
+             :
+             <Wrapper>
+                <TextField onChange={onValueChange} label = "Enter Firstname" variant = "standard"/>
+                <TextField onChange={onValueChange} label = "Enter Lastname" variant = "standard"/>
+                <TextField onChange={onValueChange} label = "Enter Username" variant = "standard"/>
+                <TextField onChange={onValueChange} label = "Enter Email" variant = "standard"/>
+                <TextField onChange={onValueChange} label = "Enter Password" variant = "standard"/>
+                <TextField onChange={onValueChange} label = "Enter Phone" variant = "standard"/>
+                <LoginButton>Continue</LoginButton>
+             </Wrapper>
+             }
         </Box>
         </Component>
     </Dialog>
