@@ -13,39 +13,82 @@ background: #2874f0 url(https://static-assets-web.flixcart.com/www/linchpin/fk-c
 height: 100%;
 width: 40%;
 padding: 45px 35px;
+& > p , & > h5{
+    color: #ffffff;
+    font-weight: 600;
+}
 
-`
+`;
+const Wrapper = styled(Box)`
+    display: flex;
+    flex-direction: column;
+    padding: 25px 35px;
+    flex: 1;
+    & > div , & > button , & > p  {
+        margin-top: 20px ;
+    }
+
+`;
+
+const LoginButton = styled(Button)`
+    text-transform: none;
+    background-color: #fb641b;
+    color: #fff;
+    height: 48px;
+    border-radius: 2px;
+`;
+const RequestOtp = styled(Button)`
+    text-transform: none;
+    background-color: #fff;
+    color: #2874f0;
+    height: 48px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0/ 20%);
+`;
+
+const Text = styled(Typography)`
+    font-size: 12px;
+    color: #878787;
+`;
+const CreateAccount = styled(Typography)`
+     font-size: 14px;
+     text-align: center;
+     color: #2874f0;
+     font-weight: 600;
+     cursor: pointer;
+`;
+
 const LoginDialog = ({open , setOpen}) => {
 
     const handleClose = () => {
         setOpen(false)
     }
   return (
-    <Dialog open={open} onClose={handleClose}>
-        <Component>
+    <Dialog open={open} onClose={handleClose} maxWidth={false} >
+        <Component> 
         <Box style={{display: "flex" , height: "100%"}}>
              <Image>
                 <Typography variant='h5'> Login </Typography>
                 <Typography style={{ marginTop : 20}}>Get access to your Orders, Wishlist and Recommendations</Typography>
              </Image>
-             <Box>
+             <Wrapper>
                 <TextField label = "Enter Email/Mobile number" variant = "standard"/>
                 <TextField label = "Enter Password" variant = "standard"/>
-                <Typography>
+                <Text>
                     By continuing, you  agree to Flipkart's Term of Use and Privacy Policy.
-                </Typography>
-                <Button>
+                </Text>
+                <LoginButton>
                     Login
-                </Button>
-                <Typography>
+                </LoginButton>
+                <Typography style={{ textAlign: "center"}}>
                     OR
                 </Typography>
-                <Button> Request OTP</Button>
-                <Typography>
+                <RequestOtp> Request OTP</RequestOtp>
+                <CreateAccount>
                     New to Flipkart? Create an Account.
-                </Typography>
+                </CreateAccount>
 
-             </Box>
+             </Wrapper>
         </Box>
         </Component>
     </Dialog>
