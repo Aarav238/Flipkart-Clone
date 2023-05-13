@@ -72,11 +72,20 @@ const accountInitialValue = {
     }
 }
 
+const signupIntialValue = {
+    firstName : "",
+    lastName : "",
+    username: "",
+    email : "",
+    password: "",
+    phone: ""
+}
+
 
 const LoginDialog = ({open , setOpen}) => {
 
     const [account,toggleAccout] = useState(accountInitialValue.login)
-
+    const[signup,setSignup] = useState(signupIntialValue)
     const handleClose = () => {
         setOpen(false)
         toggleAccout(accountInitialValue.login)
@@ -87,7 +96,7 @@ const LoginDialog = ({open , setOpen}) => {
     }
 
     const onValueChange = (e) => {
-        console.log(e);
+        setSignup({...signup})
     }
   return (
     <Dialog open={open} onClose={handleClose} maxWidth={false} >
