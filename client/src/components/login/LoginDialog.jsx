@@ -1,6 +1,6 @@
 import React from 'react'
 import{ Dialog , Box , TextField, Button, Typography , styled} from '@mui/material';
-import { useState } from 'react';
+import { useState , useContext } from 'react';
 import { authenticateSignup } from '../../service/api';
 const Component = styled(Box)`
 
@@ -103,6 +103,8 @@ const LoginDialog = ({open , setOpen}) => {
 
     const signupUser = async () => {
         let response =  await authenticateSignup(signup)
+        if(!response) return ;
+        handleClose();
     }
   return (
     <Dialog open={open} onClose={handleClose} maxWidth={false} >
