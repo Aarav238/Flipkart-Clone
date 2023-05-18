@@ -11,7 +11,7 @@ const Logout = styled(Typography)`
     margin-left: 20px;
 `;
 
-const Profile = (account , setAccount) => {
+const Profile = ({account , setAccount}) => {
 
     const [open , setOpen ] = useState(false);
     const handleClick = (event) => {

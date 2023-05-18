@@ -96,13 +96,13 @@ const loginInitial = {
     password: ""
 }
 
-const LoginDialog = ({open , setOpen}) => {
+const LoginDialog = ({open , setOpen, setAccount}) => {
 
     const [account,toggleAccout] = useState(accountInitialValue.login)
     const[signup,setSignup] = useState(signupIntialValue);
     const[login , setLogin] = useState(loginInitial)
     const [error , setError ] = useState(false);
-    const { setAccount}= useContext(DataContext)
+    
     const handleClose = () => {
         setOpen(false)
         toggleAccout(accountInitialValue.login)
@@ -120,6 +120,7 @@ const LoginDialog = ({open , setOpen}) => {
     const onInputChange =  (e) => {
 
         setLogin({...login, [e.target.name] : e.target.value})
+        console.log(login);
 
     }
 
