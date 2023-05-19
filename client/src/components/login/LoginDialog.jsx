@@ -96,12 +96,13 @@ const loginInitial = {
     password: ""
 }
 
-const LoginDialog = ({open , setOpen, setAccount}) => {
+const LoginDialog = ({open , setOpen}) => {
 
     const [account,toggleAccout] = useState(accountInitialValue.login)
     const[signup,setSignup] = useState(signupIntialValue);
     const[login , setLogin] = useState(loginInitial)
     const [error , setError ] = useState(false);
+    const {setAccount } = useContext(DataContext);
     
     const handleClose = () => {
         setOpen(false)
@@ -129,7 +130,7 @@ const LoginDialog = ({open , setOpen, setAccount}) => {
       let response = await authenticateLoginIn(login)
 
       console.log(response);
-      if (response.status === 200){
+      if (response.status === 201){
         handleClose();
         setAccount(response.data.data.firstname)
       }

@@ -15,18 +15,23 @@ const Profile = ({account , setAccount}) => {
 
     const [open , setOpen ] = useState(false);
     const handleClick = (event) => {
-        setOpen(event.currentTarget);  
+        setOpen(event.currentTarget); 
+        console.log(setAccount);
+        
       }
 
     const handleClose = () => {
         setOpen(false);
+
     }
     const logoutUser = () => {
         setAccount("");
     }
   return (
     <>
-       <Box onClick={handleClick}><Typography style={{marginTop: 2 , cursor: 'pointer'}}>{account.account}</Typography></Box> 
+
+      
+       <Box onClick={handleClick}><Typography style={{marginTop: 2 , cursor: 'pointer'}}>{account}</Typography></Box> 
        <Component
        
         anchorEl={open}
