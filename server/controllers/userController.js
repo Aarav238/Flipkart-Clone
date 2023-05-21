@@ -14,7 +14,7 @@ export const userLogIn = async (request, response) => {
         }
 
     } catch (error) {
-        response.json('Error: ', error.message);        
+        response.json('Error: ', error.message);     
     }
 }
 
