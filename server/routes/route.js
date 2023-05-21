@@ -8,7 +8,7 @@ router.post('/login',userLogIn)
 
 
 
-router.get('/products', getProducts);
+router.get('/products', getPrducts);
 
 
 export default router;
