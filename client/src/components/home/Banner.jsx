@@ -29,6 +29,7 @@ const Banner = () => {
          swipeable={false}
          draggable={false}
          infinite={true}
+         keyBoardControl={true}
          autoPlay={true}
          autoPlaySpeed={2000}
         containerClass="carousel-container"
