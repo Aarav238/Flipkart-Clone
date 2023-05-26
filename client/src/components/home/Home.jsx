@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import Banner from "./Banner";
 import Slide from "./Slide"
+import MidSlide from "./MidSlide";
 import { Box , styled} from "@mui/material";
 import { useEffect } from "react";
 import { getProduct } from "../../redux/actions/productAction";
@@ -24,9 +25,9 @@ const Home = () => {
     return (
         <>
             <Navbar/>
-            <Component>
+            <Component> 
             <Banner/>
-            <Slide products={products} title="Deal of the Day" timer={true}/>
+            <MidSlide products={products} title="Deal of the Day" timer={true}/>
             <Slide products={products} title="Discounts for You" timer={false}/>
             <Slide products={products} title="Suggesting Items" timer={false}/>
             <Slide products={products} title="Top Selection" timer={false}/>
