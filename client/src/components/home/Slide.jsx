@@ -36,6 +36,13 @@ const ViewAll = styled(Button)`
     font-weight: 600 ;
 `;
 
+const Text = styled(Typography)`
+    font-size: 14px ;
+    margin-top: 5px;
+
+
+`
+
 
 const Image = styled('img')({
     width: "auto",
@@ -58,7 +65,7 @@ const responsive = {
   };
 
 
-const Slide = ({products}) => {
+const Slide = ({products , title , timer}) => {
     const timeURl = "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg "
 
     const  renderer = ({hours , minutes , seconds}) => {
@@ -67,11 +74,15 @@ const Slide = ({products}) => {
   return (
     <Component>
     <Deal>
-        <DealText>Deal of the Day</DealText>
+        <DealText>{title}</DealText>
+        {
+            timer && 
         <Timer>
             <img src={timeURl} alt="timer" style={{width: 24 }} />
             <Countdown date={Date.now() + 5.04e+7} renderer={renderer}/>
         </Timer>
+        }
+        
         <ViewAll variant="contained" color="primary">View All</ViewAll>
     </Deal>
     <Divider/>
@@ -92,7 +103,9 @@ const Slide = ({products}) => {
         products.map(product => (
             <Box textAlign="center" style={{padding: '25px 15px'}}>
             <Image src={product.url} alt="product" />
-            <Typography>{product.title.shortTitle}</Typography>
+            <Text style={{fontWeight: 600 , color: "#212121" }}>{product.title.shortTitle}</Text>
+            <Text style={{color: "green"}}>{product.discount}</Text>
+            <Text style={{color: '212121', opacity: '.6'}}>{product.tagline}</Text>
             </Box>
         ))
     }
