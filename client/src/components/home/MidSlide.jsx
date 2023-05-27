@@ -30,9 +30,9 @@ const MidSlide = ({products, title, timer}) => {
                 timer={timer}
                 />
             </LeftComponent>
-                <Box>
+                <RightComponent>
                 <img src={adURL} alt="advertisement" style={{width: 217 }} />
-                </Box>
+                </RightComponent>
           
         </Component>
     )
