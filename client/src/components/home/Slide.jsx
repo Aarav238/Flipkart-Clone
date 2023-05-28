@@ -66,6 +66,7 @@ const responsive = {
 
 
 const Slide = ({products , title , timer}) => {
+    const mainProducts = products.slice(0,8);
     const timeURl = "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg "
 
     const  renderer = ({hours , minutes , seconds}) => {
@@ -100,7 +101,7 @@ const Slide = ({products , title , timer}) => {
         itemClass="carousel-item-padding-40-px"
         >
     {
-        products.map(product => (
+        mainProducts.map(product => (
             <Box textAlign="center" style={{padding: '25px 15px'}}>
             <Image src={product.url} alt="product" />
             <Text style={{fontWeight: 600 , color: "#212121" }}>{product.title.shortTitle}</Text>
