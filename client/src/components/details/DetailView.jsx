@@ -10,7 +10,7 @@ const DetailView = () => {
     const {id} = useParams();
 
     useEffect(() =>{
-        dispatch(getProductDetails())
+        dispatch(getProductDetails(id))
 
     },[dispatch, id])
 
