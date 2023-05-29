@@ -4,7 +4,7 @@ import { Box, Typography, Button, Grid, styled } from '@mui/material';
 import { useParams } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart, removeFromCart } from '../../redux/actions/cartActions';
+import { addToCart, removeFromCart } from '../../redux/actions/cartAction';
 
 import TotalView from './TotalView';
 import EmptyCart from './EmptyCart';
@@ -81,7 +81,7 @@ const Cart = () => {
             <Component container>
                 <LeftComponent item lg={9} md={9} sm={12} xs={12}>
                     <Header>
-                        <Typography style={{fontWeight: 600, fontSize: 18}}>My Cart ({cartItems?.length})</Typography>
+                        <Typography style={{fontWeight: 600, fontSize: 18}}>My Cart ({cartItems.length})</Typography>
                     </Header>
                         {   cartItems.map(item => (
                                 <CartItem item={item} removeItemFromCart={removeItemFromCart}/>
