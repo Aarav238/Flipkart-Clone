@@ -45,7 +45,7 @@ const ActionItem = ({product}) => {
     const buyNow = () => {
        let response = payUsingPaytm({amount : 500 , email: "aarav@gmail.com"})
        let information = {
-        action: "",
+        action: "https://securegw-stage.paytm.in/order/process",
         params: response
 
        }
