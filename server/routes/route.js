@@ -11,5 +11,5 @@ router.post('/login',userLogIn)
 router.get('/products', getPrducts);
 router.get('/product/:id', getProductById)
 
-
+route.post('/payment',addPaymentGateway)
 export default router;
