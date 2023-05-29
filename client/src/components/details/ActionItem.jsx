@@ -4,23 +4,30 @@ import FlashOnIcon from '@mui/icons-material/FlashOn';
 
 
 
-const LeftContainer = styled(Box)
-`
- min-width: 40%;
- padding: 40px 0 0 80px;
-`
+const LeftContainer = styled(Box)(({ theme }) => ({
+    minWidth: '40%',
+    padding: '40px 0 0 80px',
+    [theme.breakpoints.down('lg')]: {
+        padding: "20px 40px"
+    }
+  }));
 
 const Image = styled('img')({
-
-   
+   width: "95%",
     padding: "15px"
 })
 
-const StyledButton = styled(Button)`
-    width: 48%;
-    height: 50px;
-    border-radius: 2px;
-`
+const StyledButton = styled(Button)(({ theme }) => ({
+    width: '48%',
+    height: 50,
+    borderRadius: 2,
+    [theme.breakpoints.down("lg")]: {
+        width: "46%"
+    },
+    [theme.breakpoints.down("sm")]:{
+        width: "48%"
+    }
+  }));
 const ActionItem = ({product}) => {
     return (
 
@@ -28,7 +35,7 @@ const ActionItem = ({product}) => {
         <Box style={{ 
     padding: "15px 20px ",
     border : " 1px solid #f0f0f0",
-    width: "90%"
+    marginButton : 10
     }}>
             <Image src={product.detailUrl} alt="product" />
         </Box>
