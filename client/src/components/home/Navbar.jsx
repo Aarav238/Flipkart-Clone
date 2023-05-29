@@ -11,8 +11,6 @@ const Component = styled(Box)(({theme}) => ({
   
   [theme.breakpoints.down("lg")] :{
     margin: 0,
-   
-
 
   }
 }))
@@ -32,7 +30,8 @@ font-family: inherit;
 
 const Navbar = () => {
   return (
-   <Component>
+    <Box style={{background: "fff"}}>
+    <Component>
    {
     navData.map(data => (
         <Container>
@@ -43,6 +42,9 @@ const Navbar = () => {
    }
 
    </Component>
+
+    </Box>
+   
   )
 }
 
