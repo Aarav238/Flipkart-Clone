@@ -15,7 +15,7 @@ export const addPaymentGateway = async (request, response) => {
         response.json(params);
     } catch (error) {
         console.log(error);
-    }
+    } 
 }
 
 export const paymentResponse = (request, response) => {
@@ -29,6 +29,7 @@ export const paymentResponse = (request, response) => {
         let paytmParams = {};
         paytmParams["MID"] = request.body.MID;
         paytmParams["ORDERID"] = request.body.ORDERID;
+        console.log(paytmParams);
 
         paytmchecksum.generateSignature(paytmParams, 'bKMfNxPPf_QdZppa').then(function (checksum) {
 
