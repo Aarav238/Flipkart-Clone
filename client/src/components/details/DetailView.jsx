@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { getProductDetails } from "../../redux/actions/productAction";
 import ActionItem from "./ActionItem";
 import ProductDetail from "./ProductDetail";
-import { Box, Typography ,styled , Grid } from "@mui/material";
+import { Box,styled , Grid } from "@mui/material";
 
 const  Component = styled(Box)`
 background: #F2F2F2;

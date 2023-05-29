@@ -1,5 +1,5 @@
 import React from 'react'
-import {AppBar , Toolbar, styled ,Drawer, Box, Typography, IconButton} from "@mui/material" 
+import {AppBar , Toolbar, styled ,Drawer, Box, Typography, IconButton, List , ListItem} from "@mui/material" 
 import Search from './Search';
 import { Link } from 'react-router-dom';
 import CustomButtons from './CustomButtons';
@@ -52,6 +52,17 @@ const Header = () => {
     const handleClose =  () => {
       setOpen(false);
     }
+
+
+    const list = () => (
+      <Box style={{width: 200}} onClick={handleClose}>
+        <List>
+          <ListItem button>
+          <CustomButtons/>
+          </ListItem>
+        </List>
+      </Box>
+    )
     return (
     
         <StyledHeader>
@@ -60,7 +71,7 @@ const Header = () => {
           <MenuIcon/>
         </MenuButton>
         <Drawer open={open} onClose={handleClose} >
-          
+        {list()}
         </Drawer>
           <Component to='/'>
            <img src={logo} alt="logo" style={{ width: 75 }} /> 
