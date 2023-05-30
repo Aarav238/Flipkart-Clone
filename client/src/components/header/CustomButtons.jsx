@@ -20,6 +20,9 @@ const Wrapper = styled(Box)(({ theme }) => ({
   }));
 const Container = styled(Link)(({ theme }) => ({
     display: 'flex',
+    textDecoration: "none",
+    color: "inherit",
+    alignItems: 'center',
     [theme.breakpoints.down("md")]: {
         display: "block"
     }
@@ -56,11 +59,11 @@ const CustomButtons = () => {
             <Typography style={{marginTop: 3 , width : 135}}>Become a seller</Typography>
             <Typography style={{marginTop: 3 }}>More </Typography>
 
-            <Container to='/cart'>
-            <Badge badgeContent= {cartItems?.lenght} color="secondary">
+            <Container  to='/cart'>
+            <Badge badgeContent= {cartItems?.length} color="secondary">
                 <ShoppingCart/>
              </Badge>
-                <Typography style={{marginTop: 10}}>Cart</Typography>
+                <Typography style={{marginLeft: 10}}>Cart</Typography>
             </Container>
             <LoginDialog open = { open} setOpen = {setOpen}/> 
         </Wrapper>

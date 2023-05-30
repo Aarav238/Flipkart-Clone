@@ -36,6 +36,7 @@ const TotalAmount = styled(Typography)`
 const Discount = styled(Typography)`
     font-size: 16px; 
     color: green;
+    font-weight: 500;
 `
 
 // component: {
@@ -77,7 +78,7 @@ const TotalView = ({ cartItems }) => {
                 <Typography>Delivery Charges
                     <Price component="span">₹40</Price>
                 </Typography>
-                <TotalAmount>Total Amount
+                <TotalAmount variant="h6">Total Amount
                     <Price>₹{price - discount + 40}</Price>
                 </TotalAmount>
                 <Discount>You will save ₹{discount - 40} on this order</Discount>

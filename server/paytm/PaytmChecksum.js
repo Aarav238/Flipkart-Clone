@@ -17,6 +17,7 @@ class PaytmChecksum {
 			decrypted += decipher.final('binary');
 		}
 		catch (e) {
+			console.log("Api key issue")
 			console.log(e);
 		}
 		return decrypted;
@@ -74,7 +75,7 @@ class PaytmChecksum {
 	}
 
 	static getStringByParams(params) {
-		var data = {};
+		var data = "";
 		Object.keys(params).sort().forEach(function(key,value) {
 			data[key] = (params[key] !== null && params[key].toLowerCase() !== "null") ? params[key] : "";
 		});
