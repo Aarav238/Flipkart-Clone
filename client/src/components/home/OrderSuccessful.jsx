@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 const Container = styled(Grid)(({ theme }) => ({
   margin: "auto",
   textAlign: "center",
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 }));
 
 const Title = styled(Typography)(({ theme }) => ({
@@ -30,10 +30,10 @@ const SmallButton = styled(Button)(({ theme }) => ({
 const OrderSuccessful = () => {
   const navigate = useNavigate();
   const done = () => {
-    navigate('/')
-  }
+    navigate("/");
+  };
   return (
-    <Container  container>
+    <Container container>
       <Grid item xs={12}>
         <Title variant="h4">Your order has been placed successfully!</Title>
       </Grid>
@@ -46,7 +46,7 @@ const OrderSuccessful = () => {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <SmallButton onClick={done} variant="contained" color="primary" >
+        <SmallButton onClick={done} variant="contained" color="primary">
           Continue Shopping
         </SmallButton>
       </Grid>
