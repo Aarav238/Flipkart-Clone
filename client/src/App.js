@@ -3,7 +3,7 @@ import Header from './components/header/Header';
 import Home from './components/home/Home';
 import DetailView from './components/details/DetailView';
 import Cart from './components/cart/Cart';
-import OrderSuccessful from './components/OrderSuccessful';
+import OrderSuccessful from './components/home/OrderSuccessful';
 
 import {BrowserRouter , Routes , Route} from "react-router-dom"
 

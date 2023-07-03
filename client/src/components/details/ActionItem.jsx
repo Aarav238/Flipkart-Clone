@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/actions/cartAction";
 import { useState } from "react";
-import { payUsingPaytm } from "../../service/api";
-import { post } from "../../utils/paytm";
+
 
 const LeftContainer = styled(Box)(({ theme }) => ({
     minWidth: '40%',
@@ -43,13 +42,7 @@ const ActionItem = ({product}) => {
     }
 
     const buyNow = () => {
-       let response = payUsingPaytm({amount : 500 , email: "aarav@gmail.com"})
-       let information = {
-        action: "https://securegw-stage.paytm.in/order/process",
-        params: response
-
-       }
-       post(information)
+      navigate("/orderSuccessful")
     }
     return (
 

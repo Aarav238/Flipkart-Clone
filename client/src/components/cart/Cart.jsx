@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { Box, Typography, Button, Grid, styled } from '@mui/material';
 import { useParams } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, removeFromCart } from '../../redux/actions/cartAction';
 
@@ -10,8 +10,6 @@ import TotalView from './TotalView';
 import EmptyCart from './EmptyCart';
 import CartItem from './CartItem';
 
-import { post } from '../../utils/paytm';
-import { payUsingPaytm } from '../../service/api';
 
 const Component = styled(Grid)(({ theme }) => ({
     padding: '30px 135px',
@@ -51,6 +49,7 @@ const StyledButton = styled(Button)`
 `;
 
 const Cart = () => {
+    const navigate = useNavigate();
     const cartDetails = useSelector(state => state.cart);
     const { cartItems } = cartDetails;
     const { id } = useParams();
@@ -67,12 +66,7 @@ const Cart = () => {
     }
 
     const buyNow = async () => {
-        let response = await payUsingPaytm({ amount: 500, email: 'kunaltyagi@gmail.com'});
-        var information = {
-            action: 'https://securegw-stage.paytm.in/order/process',
-            params: response    
-        }
-        post(information);
+      navigate("/orderSuccessful");
     }
 
     return (
