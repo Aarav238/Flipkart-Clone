@@ -2,12 +2,14 @@ import React from "react";
 import { Button, Typography, Grid } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled(Grid)(({ theme }) => ({
   margin: "auto",
   textAlign: "center",
-  display: "flex",
-  justifyContent: "center"
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 }));
 
 const Title = styled(Typography)(({ theme }) => ({
@@ -26,6 +28,10 @@ const SmallButton = styled(Button)(({ theme }) => ({
 }));
 
 const OrderSuccessful = () => {
+  const navigate = useNavigate();
+  const done = () => {
+    navigate('/')
+  }
   return (
     <Container  container>
       <Grid item xs={12}>
@@ -40,7 +46,7 @@ const OrderSuccessful = () => {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <SmallButton variant="contained" color="primary" >
+        <SmallButton onClick={done} variant="contained" color="primary" >
           Continue Shopping
         </SmallButton>
       </Grid>
