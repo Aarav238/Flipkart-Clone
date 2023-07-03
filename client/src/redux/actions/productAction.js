@@ -1,7 +1,7 @@
 import axios from "axios"
 import * as actionType from "../constants/productConstant"
 
-const URL = "http://localhost:5000"
+const URL = "https://clone-backend-jslt.onrender.com"
 
 export const getProduct = () => async(dispatch) => {
     try {

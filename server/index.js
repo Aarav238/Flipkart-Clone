@@ -6,7 +6,6 @@ import bodyParser from "body-parser";
 import {v4 as uuid} from "uuid";
 import Router from "./routes/route.js"
 
-
 const app = express(); 
 
 dotenv.config();
@@ -22,6 +21,7 @@ app.use('/', Router);
 const PORT = process.env.PORT;
 const URL = process.env.URL;
 db(URL);
+
 
 app.listen(PORT, () => 
 console.log(`server is running on port ${PORT}`)
