@@ -3,6 +3,7 @@ import Header from './components/header/Header';
 import Home from './components/home/Home';
 import DetailView from './components/details/DetailView';
 import Cart from './components/cart/Cart';
+import OrderSuccessful from './components/OrderSuccessful';
 
 import {BrowserRouter , Routes , Route} from "react-router-dom"
 
@@ -16,6 +17,7 @@ function App() {
       <Box style={{marginTop: 54}}>
       <Routes>
        <Route path='/' element={<Home/>}/>
+       <Route path='/orderSuccessful' element={<OrderSuccessful/>} />
       </Routes>
       <Routes>
       <Route path='/product/:id' element={<DetailView/>}/>
