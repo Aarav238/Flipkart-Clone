@@ -1,56 +1,62 @@
 import React from "react";
-import { Button, Typography, Grid } from "@mui/material";
-import { CheckCircle } from "@mui/icons-material";
-import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 
-const Container = styled(Grid)(({ theme }) => ({
-  margin: "auto",
-  textAlign: "center",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const Title = styled(Typography)(({ theme }) => ({
-  marginBottom: theme.spacing(2),
-}));
-
-const Icon = styled(CheckCircle)(({ theme }) => ({
-  fontSize: 80,
-  color: theme.palette.success.main,
-  marginBottom: theme.spacing(2),
-}));
-const SmallButton = styled(Button)(({ theme }) => ({
-  padding: theme.spacing(1),
-  fontSize: "0.875rem", // Adjust the font size as desired
-  width: "15%",
-}));
 
 const OrderSuccessful = () => {
   const navigate = useNavigate();
   const done = () => {
     navigate("/");
   };
+
   return (
-    <Container container>
-      <Grid item xs={12}>
-        <Title variant="h4">Your order has been placed successfully!</Title>
-      </Grid>
-      <Grid item xs={12}>
-        <Icon />
-      </Grid>
-      <Grid item xs={12}>
-        <Typography variant="subtitle1">
-          Thank you for shopping with us.
-        </Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <SmallButton onClick={done} variant="contained" color="primary">
+    <div
+      style={{
+        margin: "auto",
+        textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
+        gap: "0.5rem",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "30em",
+      }}
+    >
+      <div style={{ marginBottom: "16px" }}>
+        <h1>Your order has been placed successfully!</h1>
+      </div>
+      <div>
+        <img
+          src="https://www.svgrepo.com/show/384403/accept-check-good-mark-ok-tick.svg"
+          alt="Success Icon"
+          style={{
+            width: "80px",
+            height: "80px",
+            marginBottom: "16px",
+            color: "green",
+          }}
+        />
+      </div>
+      <div>
+        <h5>Thank you for shopping with us.</h5>
+      </div>
+      <div>
+        <button
+          style={{
+            padding: "8px",
+            fontSize: "14px",
+            width: "100%",
+            backgroundColor: "blue",
+            color: "white",
+            border: "none",
+            borderRadius: "4px",
+            justifyContent: "center",
+          }}
+          onClick={done}
+        >
           Continue Shopping
-        </SmallButton>
-      </Grid>
-    </Container>
+        </button>
+      </div>
+    </div>
   );
 };
 
