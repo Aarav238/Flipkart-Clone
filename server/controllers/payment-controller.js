@@ -1,12 +1,12 @@
 import paytmchecksum from '../paytm/PaytmChecksum.js';
-import { paytmParams, paytmMerchantkey } from '../index.js';
+import {paytmParams} from '../index.js';
 import formidable from 'formidable';
 import https from 'https';
 
 
 
 export const addPaymentGateway = async (request, response) => {
-    const paytmCheckSum = await paytmchecksum.generateSignature(paytmParams, paytmMerchantkey);
+    const paytmCheckSum = await paytmchecksum.generateSignature(paytmParams);
     try {
         const params = {
             ...paytmParams,
@@ -57,7 +57,7 @@ export const paymentResponse = (request, response) => {
                 post_res.on('end', function () {
                     let result = JSON.parse(res);
                     console.log(result);
-                    response.redirect(`http://localhost:3000/`)
+                    response.redirect('http://localhost:3000/')
                 });
             });
             post_req.write(post_data);

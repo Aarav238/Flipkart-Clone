@@ -4,11 +4,10 @@ import dotenv from "dotenv";
 import cors from "cors"
 import bodyParser from "body-parser";
 import {v4 as uuid} from "uuid";
-import defaultData from "./data.js";
 import Router from "./routes/route.js"
 
 
-const app = express();
+const app = express(); 
 
 dotenv.config();
 
@@ -28,15 +27,15 @@ app.listen(PORT, () =>
 console.log(`server is running on port ${PORT}`)
 )
 //defaultData();
-export let paytmMerchantkey = process.env.PAYTM_MERCHANT_KEY;
-export let paytmParams = {};
-paytmParams['MID'] = process.env.PAYTM_MID,
-paytmParams['WEBSITE'] = process.env.PAYTM_WEBSITE,
-paytmParams['CHANNEL_ID'] = process.env.PAYTM_CHANNEL_ID,
-paytmParams['INDUSTRY_TYPE_ID'] = process.env.PAYTM_INDUSTRY_TYPE_ID,
-paytmParams['ORDER_ID'] = uuid(),
-paytmParams['CUST_ID'] = process.env.PAYTM_CUST_ID,
-paytmParams['TXN_AMOUNT'] = '100',
-paytmParams['CALLBACK_URL'] = 'http://localhost:5000/callback'
-paytmParams['EMAIL'] = 'aarav8090shukla@gmail.com'
-paytmParams['MOBILE_NO'] = '1234567852'
+export let paytmParams = {
+    MID: process.env.PAYTM_MID,
+    WEBSITE: process.env.PAYTM_WEBSITE,
+    CHANNEL_ID: process.env.PAYTM_CHANNEL_ID,
+    INDUSTRY_TYPE_ID: process.env.PAYTM_INDUSTRY_TYPE_ID,
+    ORDER_ID: uuid(),
+    CUST_ID: process.env.PAYTM_CUST_ID,
+    TXN_AMOUNT: '100',
+    CALLBACK_URL: 'http://localhost:3000/callback',
+    EMAIL: 'aarav8090shukla@gmail.com',
+    MOBILE_NO: '1234567852'
+  };
